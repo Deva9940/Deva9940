@@ -1,11 +1,9 @@
 import pyodbc
 
-import schedule
 
-import time
 
 from datetime import datetime
- 
+
 # Database Connection Parameters
 
 SERVER = "sma.ctzt1q0dkfdj.us-east-1.rds.amazonaws.com"
@@ -17,7 +15,7 @@ USERNAME = "dealerportalsma"
 PASSWORD = "ejadmin123"
 
 STORED_PROCEDURE = "shopify.pricesync"
- 
+
 def execute_stored_procedure():
 
     """Connects to SQL Server and executes the stored procedure."""
@@ -53,19 +51,7 @@ def execute_stored_procedure():
     except Exception as e:
 
         print(f"[{datetime.now()}] Error executing stored procedure: {e}")
- 
-# Schedule execution at a fixed time (e.g., 02:00 AM daily)
 
-schedule.every().day.at("09:00").do(execute_stored_procedure)
- 
-print("Scheduler started! Waiting for the scheduled time...")
- 
-# Keep the script running
 
-while True:
 
-    schedule.run_pending()
-
-    time.sleep(60)  # Check every 60 seconds
-
- 
+execute_stored_procedure()
