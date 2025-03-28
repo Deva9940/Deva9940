@@ -6,10 +6,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run the procedure given
+      - uses:  actions/checkout@v4
+      - name: Install the dependecies
+        run : |
+         sudo apt update
+         sudo apt install -y unixodbc-dev
+         sudo apt install -y odbcinst odbcinst1debian2 odbc-bin unixodbc
+         sudo apt install -y msodbcsql17
+         pip install pyodbc
+      - name: Run the procedure
         run: |
-          pip install pyodbc
-          python exec_procedure.py
-          echo "Procedure ran successfully"
+             python exec_procedure.py
+             echo "Procedure ran successfully"
         
