@@ -7,6 +7,10 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - shell: python
       - uses: actions/checkout@v4
       - name: Run the procedure given
-        run: python 
+        run: |
+          python exec_procedure.py
+          print("Procedure ran successfully")
+        
