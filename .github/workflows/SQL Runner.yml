@@ -4,7 +4,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     steps:
       - shell: python
@@ -12,5 +11,5 @@ jobs:
       - name: Run the procedure given
         run: |
           python exec_procedure.py
-          print("Procedure ran successfully")
+          echo "Procedure ran successfully"
         
