@@ -6,7 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - shell: python
       - uses: actions/checkout@v4
       - name: Run the procedure given
         run: |
